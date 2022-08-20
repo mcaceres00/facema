@@ -14,11 +14,11 @@
 		<table class="table datatable-basic table-xxs table-hover">
 						<thead>
 							<tr>
-								<th>No</th>
+								<th>Nº.</th>
 								<th>Empresa</th>
 								<th>Propietario</th>
 								<th>RUC</th>
-								<th>% IGV</th>
+								<th>I.V.A</th>
 								<th class="text-center">Opciones</th>
 							</tr>
 						</thead>
@@ -39,7 +39,7 @@
 					                	<td><?php print($column['idparametro']); ?></td>
 					                	<td><?php print($column['nombre_empresa']); ?></td>
 					                	<td><?php print($column['propietario']); ?></td>
-					                	<td><?php print($column['numero_nrc']); ?></td>
+					                	<td><?php print($column['numero_ruc']); ?></td>
 					                	<td><?php print($column['porcentaje_iva']); ?></td>
 					                	<td class="text-center">
 										<ul class="icons-list">
@@ -56,7 +56,7 @@
 																'<?php print($column["nombre_empresa"]); ?>',
 																'<?php print($column["propietario"]); ?>',
 																'<?php print($nit); ?>',
-																'<?php print($column["numero_nrc"]); ?>',
+																'<?php print($column["numero_ruc"]); ?>',
 																'<?php print($column["porcentaje_iva"]); ?>',
 																'<?php print($column["porcentaje_retencion"]); ?>',
 																'<?php print($column["monto_retencion"]); ?>',
@@ -71,7 +71,7 @@
 																'<?php print($column["nombre_empresa"]); ?>',
 																'<?php print($column["propietario"]); ?>',
 																'<?php print($nit); ?>',
-																'<?php print($column["numero_nrc"]); ?>',
+																'<?php print($column["numero_ruc"]); ?>',
 																'<?php print($column["porcentaje_iva"]); ?>',
 																'<?php print($column["porcentaje_retencion"]); ?>',
 																'<?php print($column["monto_retencion"]); ?>',

@@ -39,18 +39,18 @@
 
 
 		public function Insertar_Parametro($nombre_empresa, $propietario, $numero_nit,
-		$numero_nrc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency){
+		$numero_ruc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency){
 
 		$cmd = ParametroModel::Insertar_Parametro($nombre_empresa, $propietario, $numero_nit,
-		$numero_nrc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency);
+		$numero_ruc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency);
 
 		}
 
 		public function Editar_Parametro($idparametro, $nombre_empresa, $propietario, $numero_nit,
-		$numero_nrc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency){
+		$numero_ruc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency){
 
 		$cmd = ParametroModel::Editar_Parametro($idparametro, $nombre_empresa, $propietario, $numero_nit,
-		$numero_nrc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency);
+		$numero_ruc, $porcentaje_iva,$porcentaje_retencion,$monto_retencion,$direccion,$idcurrency);
 
 		}
 

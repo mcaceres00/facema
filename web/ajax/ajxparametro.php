@@ -34,7 +34,7 @@
 			$nombre_empresa = trim($_POST['nombre_empresa']);
 			$propietario = trim($_POST['propietario']);
 			$numero_nit = trim($_POST['numero_nit']);
-			$numero_nrc = trim($_POST['numero_nrc']);
+			$numero_ruc = trim($_POST['numero_ruc']);
 			$porcentaje_iva = trim($_POST['porcentaje_iva']);
 			$porcentaje_retencion = trim($_POST['porcentaje_retencion']);
 			$monto_retencion = trim($_POST['monto_retencion']);
@@ -46,12 +46,12 @@
 			switch($proceso){
 
 			case 'Registro':
-				$funcion->Insertar_Parametro($nombre_empresa,$propietario,$numero_nit,$numero_nrc,$porcentaje_iva,
+				$funcion->Insertar_Parametro($nombre_empresa,$propietario,$numero_nit,$numero_ruc,$porcentaje_iva,
 				$porcentaje_retencion,$monto_retencion,$direccion_empresa,$idcurrency);
 			break;
 
 			case 'Edicion':
-				$funcion->Editar_Parametro($id,$nombre_empresa,$propietario,$numero_nit,$numero_nrc,$porcentaje_iva,
+				$funcion->Editar_Parametro($id,$nombre_empresa,$propietario,$numero_nit,$numero_ruc,$porcentaje_iva,
 				$porcentaje_retencion,$monto_retencion,$direccion_empresa,$idcurrency);
 			break;
 

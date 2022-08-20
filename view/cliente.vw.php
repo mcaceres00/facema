@@ -43,7 +43,7 @@
 					<table class="table datatable-basic table-xxs table-hover">
 						<thead>
 							<tr>
-								<th>No</th>
+								<th>Nº.</th>
 								<th>Cliente</th>
 								<th>Documento</th>
 								<th>Teléfono</th>
@@ -153,7 +153,7 @@
 						           <div class="form-group">
 										<div class="row">
 											<div class="col-sm-6">
-												<label>Codigo</label>
+												<label>Código</label>
 												<input type="text" id="txtCodigo" name="txtCodigo" placeholder="AUTOGENERADO"
 												 class="form-control" style="text-transform:uppercase;"
                                         		onkeyup="javascript:this.value=this.value.toUpperCase();" readonly="" disabled="disabled">
@@ -183,7 +183,7 @@
 											</div>
 
 											<div class="col-sm-6">
-												<label>Ruc</label>
+												<label>RUC</label>
 												<input type="text" id="txtNRC" name="txtNRC" placeholder="EJ. 4444333-1"
 												 class="form-control" style="text-transform:uppercase;"
 																						onkeyup="javascript:this.value=this.value.toUpperCase();">
@@ -194,7 +194,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6">
-												<label>Telefono</label>
+												<label>Teléfono</label>
 												<input type="text" id="txtTelefono" name="txtTelefono" placeholder="EJ. 021234567"
 												 class="form-control" style="text-transform:uppercase;"
                                         		onkeyup="javascript:this.value=this.value.toUpperCase();">
@@ -231,7 +231,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12">
-												<label>Direccion</label>
+												<label>Dirección</label>
 												 <textarea rows="2" class="form-control"
                            placeholder="EJ. CALLE MALECON IQUIQUE 406 MIRAFLORES, AREQUIPA - PERU"
                            id="txtDireccion" name="txtDireccion"

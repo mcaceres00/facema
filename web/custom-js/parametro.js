@@ -1,9 +1,6 @@
 $(function() {
 
-    // Table setup
-    // ------------------------------
-
-    // Setting datatable defaults
+   
     $.extend( $.fn.dataTable.defaults, {
         autoWidth: false,
         columnDefs: [{
@@ -104,7 +101,7 @@ $(function() {
         txtNIT:{
           maxlength:70
         },
-        txtNRC:{
+        txtRuc:{
           required: true,
           maxlength:70
         },
@@ -181,6 +178,7 @@ $(function() {
   function limpiarform(){
 
     var form = $( "#frmModal" ).validate();
+
     form.resetForm();
 
   }
@@ -191,7 +189,7 @@ function newParametro()
     openParametro('nuevo',null,null,null,null,null,null,null,null,null);
     $('#modal_iconified').modal('show');
  }
-function openParametro(action, idparametro, nombre_empresa, propietario, numero_nit, numero_nrc, porcentaje_iva, porcentaje_retencion, monto_retencion, idcurrency ,direccion_empresa)
+function openParametro(action, idparametro, nombre_empresa, propietario, numero_nit, numero_ruc, porcentaje_iva, porcentaje_retencion, monto_retencion, idcurrency ,direccion_empresa)
  {
 
     $('#modal_iconified').on('shown.bs.modal', function () {
@@ -203,7 +201,7 @@ function openParametro(action, idparametro, nombre_empresa, propietario, numero_
       $('#txtEmpresa').val('');
       $('#txtPropietario').val('');
       $('#txtNIT').val('');
-      $('#txtNRC').val('');
+      $('#txtRuc').val('');
       $('#txtPIVA').val('');
       $('#txtPRET').val('');
       $('#txtMontoR').val('');
@@ -213,7 +211,7 @@ function openParametro(action, idparametro, nombre_empresa, propietario, numero_
 
       $('#txtEmpresa').prop( "disabled" , false);
       $('#txtNIT').prop( "disabled" , false);
-      $('#txtNRC').prop( "disabled" , false);
+      $('#txtRuc').prop( "disabled" , false);
       $('#txtPropietario').prop( "disabled" , false);
       $('#txtPIVA').prop( "disabled" , false);
       $('#txtPRET').prop( "disabled" , false);
@@ -236,7 +234,7 @@ function openParametro(action, idparametro, nombre_empresa, propietario, numero_
       $('#txtEmpresa').val(nombre_empresa);
       $('#txtPropietario').val(propietario);
       $('#txtNIT').val(numero_nit);
-      $('#txtNRC').val(numero_nrc);
+      $('#txtRuc').val(numero_ruc);
       $('#txtPIVA').val(porcentaje_iva);
       $('#txtPRET').val(porcentaje_retencion);
       $('#txtMontoR').val(monto_retencion);
@@ -246,7 +244,7 @@ function openParametro(action, idparametro, nombre_empresa, propietario, numero_
 
       $('#txtEmpresa').prop( "disabled" , false);
       $('#txtNIT').prop( "disabled" , false);
-      $('#txtNRC').prop( "disabled" , false);
+      $('#txtRuc').prop( "disabled" , false);
       $('#txtPropietario').prop( "disabled" , false);
       $('#txtPIVA').prop( "disabled" , false);
       $('#txtPRET').prop( "disabled" , false);
@@ -265,7 +263,7 @@ function openParametro(action, idparametro, nombre_empresa, propietario, numero_
       $('#txtEmpresa').val(nombre_empresa);
       $('#txtPropietario').val(propietario);
       $('#txtNIT').val(numero_nit);
-      $('#txtNRC').val(numero_nrc);
+      $('#txtRuc').val(numero_ruc);
       $('#txtPIVA').val(porcentaje_iva);
       $('#txtPRET').val(porcentaje_retencion);
       $('#txtMontoR').val(monto_retencion);
@@ -275,7 +273,7 @@ function openParametro(action, idparametro, nombre_empresa, propietario, numero_
 
       $('#txtEmpresa').prop( "disabled" , true);
       $('#txtNIT').prop( "disabled" , true);
-      $('#txtNRC').prop( "disabled" , true);
+      $('#txtRuc').prop( "disabled" , true);
       $('#txtPropietario').prop( "disabled" , true);
       $('#txtPIVA').prop( "disabled" , true);
       $('#txtPRET').prop( "disabled" , true);
@@ -301,7 +299,7 @@ function enviar_frm()
   var nombre_empresa =$("#txtEmpresa").val();
   var propietario =$("#txtPropietario").val();
   var numero_nit =$("#txtNIT").val();
-  var numero_nrc =$("#txtNRC").val();
+  var numero_ruc =$("#txtRuc").val();
   var porcentaje_iva = $("#txtPIVA").val();
   var porcentaje_retencion = $('#txtPRET').val();
   var monto_retencion = $('#txtMontoR').val();
@@ -309,7 +307,7 @@ function enviar_frm()
   var idcurrency = $("#cbMoneda").val();
 
   var dataString='proceso='+proceso+'&id='+id+'&nombre_empresa='+nombre_empresa+'&propietario='+propietario;
-  dataString+='&numero_nit='+numero_nit+'&numero_nrc='+numero_nrc+'&porcentaje_iva='+porcentaje_iva+'&direccion_empresa='+direccion_empresa+'&idcurrency='+idcurrency;
+  dataString+='&numero_nit='+numero_nit+'&numero_ruc='+numero_ruc+'&porcentaje_iva='+porcentaje_iva+'&direccion_empresa='+direccion_empresa+'&idcurrency='+idcurrency;
   dataString+='&porcentaje_retencion='+porcentaje_retencion+'&monto_retencion='+monto_retencion;
 
 

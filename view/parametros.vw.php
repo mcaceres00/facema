@@ -31,7 +31,7 @@
 								<th>Nº.</th>
 								<th>Empresa</th>
 								<th>Propietario</th>
-								<th>NIT</th>
+								<th>RUC</th>
 								<th>% IVA</th>
 								<th class="text-center">Opciones</th>
 							</tr>
@@ -53,7 +53,7 @@
 					                	<td><?php print($column['idparametro']); ?></td>
 					                	<td><?php print($column['nombre_empresa']); ?></td>
 					                	<td><?php print($column['propietario']); ?></td>
-					                	<td><?php print($column['numero_nrc']); ?></td>
+					                	<td><?php print($column['numero_ruc']); ?></td>
 					                	<td><?php print($column['porcentaje_iva']); ?></td>
 					                	<td class="text-center">
 										<ul class="icons-list">
@@ -70,7 +70,7 @@
 								                     '<?php print($column["nombre_empresa"]); ?>',
 								                     '<?php print($column["propietario"]); ?>',
 								                     '<?php print($nit); ?>',
-								                     '<?php print($column["numero_nrc"]); ?>',
+								                     '<?php print($column["numero_ruc"]); ?>',
 								                     '<?php print($column["porcentaje_iva"]); ?>',
 																		 '<?php print($column["porcentaje_retencion"]); ?>',
 																		 '<?php print($column["monto_retencion"]); ?>',
@@ -85,7 +85,7 @@
 								                     '<?php print($column["nombre_empresa"]); ?>',
 								                     '<?php print($column["propietario"]); ?>',
 								                     '<?php print($nit); ?>',
-								                     '<?php print($column["numero_nrc"]); ?>',
+								                     '<?php print($column["numero_ruc"]); ?>',
 								                     '<?php print($column["porcentaje_iva"]); ?>',
 																		 '<?php print($column["porcentaje_retencion"]); ?>',
 																		 '<?php print($column["monto_retencion"]); ?>',
@@ -189,7 +189,7 @@
 
 											<div class="col-sm-6">
 												<label>R.U.C <span class="text-danger">*</span></label>
-												<input type="text" id="txtNRC" name="txtNRC" placeholder="EJ. 10465911706"
+												<input type="text" id="txtRuc" name="txtRuc" placeholder="EJ. 1591456-2"
 												 class="form-control" style="text-transform:uppercase;"
                                         		onkeyup="javascript:this.value=this.value.toUpperCase();">
 											</div>
@@ -203,7 +203,7 @@
 										<div class="row">
 											<div class="col-sm-6">
 												<label>Porcentaje I.V.A <span class="text-danger">*</span></label>
-												<input type="text" id="txtPIVA" name="txtPIVA" placeholder="EJ. 18.00"
+												<input type="text" id="txtPIVA" name="txtPIVA" placeholder="EJ. 10.00"
 												class="touchspin-prefix" value="0" style="text-transform:uppercase;"
                        							onkeyup="javascript:this.value=this.value.toUpperCase();">
 											</div>
@@ -233,7 +233,7 @@
 											<div class="col-sm-6">
 												<label>Dirección <span class="text-danger">*</span></label>
 												 <textarea rows="3" class="form-control"
-													placeholder="EJ. CALLE MALECON IQUIQUE 406 MIRAFLORES, AREQUIPA - PERU" id="txtDireccion" name="txtDireccion"
+													placeholder="EJ. Artigas 556" id="txtDireccion" name="txtDireccion"
 													value="" style="text-transform:uppercase;"
 													onkeyup="javascript:this.value=this.value.toUpperCase();">
 													</textarea>

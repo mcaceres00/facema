@@ -127,18 +127,18 @@
 
 
 		public function Insertar_Parametro($nombre_empresa, $propietario, $numero_nit,
-		$numero_nrc, $porcentaje_iva, $porcentaje_retencion , $monto_retencion, $direccion, $idcurrency)
+		$numero_ruc, $porcentaje_iva, $porcentaje_retencion , $monto_retencion, $direccion, $idcurrency)
 		{
 			$dbconec = Conexion::Conectar();
 			try
 			{
 				$query = "CALL sp_insert_parametro(:nombre_empresa, :propietario, :numero_nit,
-				:numero_nrc, :porcentaje_iva, :porcentaje_retencion, :monto_retencion, :direccion, :idcurrency)";
+				:numero_ruc, :porcentaje_iva, :porcentaje_retencion, :monto_retencion, :direccion, :idcurrency)";
 				$stmt = $dbconec->prepare($query);
 				$stmt->bindParam(":nombre_empresa",$nombre_empresa);
 				$stmt->bindParam(":propietario",$propietario);
 				$stmt->bindParam(":numero_nit",$numero_nit);
-				$stmt->bindParam(":numero_nrc",$numero_nrc);
+				$stmt->bindParam(":numero_ruc",$numero_ruc);
 				$stmt->bindParam(":porcentaje_iva",$porcentaje_iva);
 				$stmt->bindParam(":porcentaje_retencion",$porcentaje_retencion);
 				$stmt->bindParam(":monto_retencion",$monto_retencion);
@@ -170,19 +170,19 @@
 		}
 
 		public function Editar_Parametro($idparametro, $nombre_empresa, $propietario, $numero_nit,
-		$numero_nrc, $porcentaje_iva, $porcentaje_retencion, $monto_retencion, $direccion,$idcurrency)
+		$numero_ruc, $porcentaje_iva, $porcentaje_retencion, $monto_retencion, $direccion,$idcurrency)
 		{
 			$dbconec = Conexion::Conectar();
 			try
 			{
 				$query = "CALL sp_update_parametro(:idparametro,:nombre_empresa, :propietario, :numero_nit,
-				:numero_nrc, :porcentaje_iva, :porcentaje_retencion, :monto_retencion, :direccion,:idcurrency);";
+				:numero_ruc, :porcentaje_iva, :porcentaje_retencion, :monto_retencion, :direccion,:idcurrency);";
 				$stmt = $dbconec->prepare($query);
 				$stmt->bindParam(":idparametro",$idparametro);
 				$stmt->bindParam(":nombre_empresa",$nombre_empresa);
 				$stmt->bindParam(":propietario",$propietario);
 				$stmt->bindParam(":numero_nit",$numero_nit);
-				$stmt->bindParam(":numero_nrc",$numero_nrc);
+				$stmt->bindParam(":numero_ruc",$numero_nrc);
 				$stmt->bindParam(":porcentaje_iva",$porcentaje_iva);
 				$stmt->bindParam(":porcentaje_retencion",$porcentaje_retencion);
 				$stmt->bindParam(":monto_retencion",$monto_retencion);

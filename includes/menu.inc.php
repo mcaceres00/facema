@@ -4,7 +4,7 @@
 						
 						<!-- Ajustes -->
 						<li>
-							<a href="#"><i class="icon-cog2"></i> <span>Parametros Gerales</span></a>
+							<a href="#"><i class="icon-cog2"></i> <span>Parametros Generales</span></a>
 							<ul>
 								<li><a href="./?View=Parametros">Datos de la empresa</a></li>
 								<li><a href="./?View=Empleados">Empleados</a></li>

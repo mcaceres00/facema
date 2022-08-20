@@ -91,7 +91,7 @@
 					<table class="table datatable-basic table-borderless table-hover table-xs">
 						<thead>
 							<tr>
-								<th>No</th>
+								<th>Nº.</th>
 								<th>PRODUCTO</th>
 								<th>MARCA</th>
 								<th>SALDO INICIAL</th>
