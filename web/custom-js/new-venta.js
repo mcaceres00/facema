@@ -522,10 +522,16 @@ $("#chkBusqueda").click(function() {
 
 
 //---------************* Agrego al detalle
-function agregar_detalle(idproducto,producto,especificacion,precio_venta,exento,stock,perecedero,inventariable,precios,excentos){
+function agregar_detalle(idproducto,producto,especificacion,precio_venta,exento,stock,perecedero,inventariable,precios,excentos, unidad_medida, cantidad=1){
+    console.log("agregar detalle", precio_venta);
+    var importe_total = precio_venta;
     var tr_add="";
     var id_previo = new Array();
     var filas=0;
+    if(unidad_medida == 'KG'){
+      importe_total = parseFloat(cantidad / 1000) * (precio_venta);
+    }
+    console.log("importe_total", importe_total);
 
       $("#tbldetalle tr").each(function (index){
 
@@ -594,6 +600,7 @@ function agregar_detalle(idproducto,producto,especificacion,precio_venta,exento,
                  tr_add += '<td width="5%"><input type="text" id="tbldesc" name="tbldesc"  value="0.00" class="touchspin" style="width:70px;"></td>';
                  tr_add += '<td align="center">'+precio_venta+'</td>';
                  tr_add += '<td align="center">/</td>';
+                 tr_add += '<td align="center" id="tblUnidadMedida" name="tblUnidadMedida">'+unidad_medida+'</td>';
                  tr_add += '<td align="center" class="Delete"><button type="button"class="btn btn-link btn-xs"><i class="icon-trash-alt"></i></button></td>';
                  tr_add += '</tr>';
 
@@ -684,6 +691,7 @@ function agregar_detalle(idproducto,producto,especificacion,precio_venta,exento,
                  tr_add += '<td width="5%"><input type="text" id="tbldesc" name="tbldesc"  value="0.00" class="touchspin" style="width:70px;"></td>';
                  tr_add += '<td align="center">'+precio_venta+'</td>';
                  tr_add += '<td align="center">/</td>';
+                 tr_add += '<td align="center" id="tblUnidadMedida" name="tblUnidadMedida">'+unidad_medida+'</td>';
                  tr_add += '<td align="center" class="Delete"><button type="button"class="btn btn-link btn-xs"><i class="icon-trash-alt"></i></button></td>';
                  tr_add += '</tr>';
 
@@ -786,6 +794,7 @@ function agregar_detalle(idproducto,producto,especificacion,precio_venta,exento,
             tr_add += '<td width="5%"><input type="text" id="tbldesc" name="tbldesc"  value="0.00" class="touchspin" style="width:70px;"></td>';
             tr_add += '<td align="center">'+precio_venta+'</td>';
             tr_add += '<td align="center">'+select_fechas+'</td>';
+            tr_add += '<td align="center" id="tblUnidadMedida" name="tblUnidadMedida">'+unidad_medida+'</td>';
             tr_add += '<td align="center" class="Delete"><button type="button"class="btn btn-link btn-xs"><i class="icon-trash-alt"></i></button></td>';
             tr_add += '</tr>';
 
@@ -885,11 +894,12 @@ async function buscar_por_codigo()
         var stock = ui.item.stock;
         var perecedero = ui.item.perecedero;
         var inventariable = ui.item.inventariable;
+        var unidad_medida = ui.item.unidad_medida;
 
 
         if(inventariable == 0){
 
-          agregar_detalle(idproducto,producto,datos,precio_venta,0.00,stock,perecedero,inventariable,precios, excentos);
+          agregar_detalle(idproducto,producto,datos,precio_venta,0.00,stock,perecedero,inventariable,precios, excentos, unidad_medida);
           $('#buscar_producto').autocomplete('close');
 
         } else if (inventariable == 1){
@@ -898,14 +908,14 @@ async function buscar_por_codigo()
             {
               if(tipo_precio == 1)
               {
-                agregar_detalle(idproducto,producto,datos,precio_venta,0.00,stock,perecedero,inventariable,precios, excentos);
+                agregar_detalle(idproducto,producto,datos,precio_venta,0.00,stock,perecedero,inventariable,precios, excentos, unidad_medida);
                 $('#buscar_producto').autocomplete('close');
               } else if (tipo_precio == 0){
 
-                agregar_detalle(idproducto,producto,datos,precio_venta_mayoreo,0.00,stock,perecedero,inventariable,precios, excentos);
+                agregar_detalle(idproducto,producto,datos,precio_venta_mayoreo,0.00,stock,perecedero,inventariable,precios, excentos, unidad_medida);
                 $('#buscar_producto').autocomplete('close');
               }else if (tipo_precio == 2) {
-                agregar_detalle(idproducto,producto,datos,precio_venta_3,0.00,stock,perecedero,inventariable,precios, excentos);
+                agregar_detalle(idproducto,producto,datos,precio_venta_3,0.00,stock,perecedero,inventariable,precios, excentos, unidad_medida);
                 $('#buscar_producto').autocomplete('close');
               }
 
@@ -913,13 +923,13 @@ async function buscar_por_codigo()
 
               if(tipo_precio == 1)
               {
-                agregar_detalle(idproducto,producto,datos,precio_venta,precio_venta,stock,perecedero,inventariable,precios, excentos);
+                agregar_detalle(idproducto,producto,datos,precio_venta,precio_venta,stock,perecedero,inventariable,precios, excentos, unidad_medida);
                 $('#buscar_producto').autocomplete('close');
               } else if (tipo_precio == 0){
-                agregar_detalle(idproducto,producto,datos,precio_venta_mayoreo,precio_venta_mayoreo,stock,perecedero,inventariable,precios,excentos);
+                agregar_detalle(idproducto,producto,datos,precio_venta_mayoreo,precio_venta_mayoreo,stock,perecedero,inventariable,precios,excentos, unidad_medida);
                 $('#buscar_producto').autocomplete('close');
               }else if(tipo_precio == 2){
-                agregar_detalle(idproducto,producto,datos,precio_venta_mayoreo,precio_venta_3,stock,perecedero,inventariable,precios, excentos);
+                agregar_detalle(idproducto,producto,datos,precio_venta_mayoreo,precio_venta_3,stock,perecedero,inventariable,precios, excentos, unidad_medida);
                 $('#buscar_producto').autocomplete('close');
               }
 
@@ -1118,9 +1128,9 @@ $.getJSON('web/ajax/ajxparametro.php?criterio=moneda',function(data){
            iva_div = iva + 1;
            //total=0.0;
            subtotal=0.0;
-            $("#tbldetalle tbody tr").each(function (index)
+            $("#tbldetalle tbody tr").each(function (index, element)
                 {
-                    var campo1, campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9, campo10, campo11;
+                    var campo1, campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9, campo10, campo11, campoUnidad;
                     $(this).children("td").each(function (index2)
                     {
                         switch (index2)
@@ -1167,7 +1177,15 @@ $.getJSON('web/ajax/ajxparametro.php?criterio=moneda',function(data){
                                      }
                                      break;
 
-                            case 6: campo6 = campo2 * campo3;
+                            case 6: 
+                                    campoUnidad = $(element).find("#tblUnidadMedida").html();
+                                    console.log("unidadMedida", campoUnidad)
+                                    if(campoUnidad.toUpperCase() == 'KG'){
+                                      campo6 = parseFloat(campo2 /1000) * parseFloat(campo3);
+                                      //campo5 = parseFloat(campo5+ ( campo5*iva));
+                                    }else{
+                                      campo6 = campo2 * campo3;
+                                    }
                                     sumas=0.00;
                                     sumas = parseFloat(campo6);
                                     if(isNaN(sumas)){sumas = 0.00;}
@@ -1289,9 +1307,9 @@ function enviar_data(){
   var descuento = 0;
   var fecha_vence = "";
 
-    $("#tbldetalle tbody tr").each(function (index)
+    $("#tbldetalle tbody tr").each(function (index, element)
         {
-            var campo1, campo2, campo3, campo4, campo5, campo6, campo7;
+            var campo1, campo2, campo3, campo4, campo5, campo6, campo7, campoUnidad;
             $(this).children("td").each(function (index2)
             {
                 switch (index2)
@@ -1317,7 +1335,15 @@ function enviar_data(){
                              descuento = parseFloat(campo5);
                              break;
 
-                    case 6:  campo6 = campo2 * campo3;
+                    case 6: 
+                            campoUnidad = $(element).find("#tblUnidadMedida").html();
+                            if(campoUnidad.toUpperCase() == 'KG'){
+                              campo6 = parseFloat(campo2 /1000) * parseFloat(campo3);
+                              //campo5 = parseFloat(campo5+ ( campo5*iva));
+                            }else{
+                              campo6 = campo2 * campo3;
+                            }
+                            // campo6 = campo2 * campo3;
                              importe = parseFloat(campo6);
                              $(this).text(campo6.toFixed(2));
                              break;

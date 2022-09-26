@@ -321,6 +321,7 @@
 				$json_row["exento"] = $recResult['exento'];
 				$json_row["perecedero"] = $recResult['perecedero'];
 				$json_row["datos"] = $recResult['nombre_marca'].' - '.$recResult['siglas'];
+				$json_row["unidad_medida"] = $recResult['siglas'];
 
 				array_push($sugg_json, $json_row);
 			}

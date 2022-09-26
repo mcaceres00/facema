@@ -57,6 +57,7 @@
 												<th class="text-center text-bold">Descuento</th>
 												<th class="text-center text-bold">Importe</th>
 												<th class="text-center text-bold">Vence</th>
+												<th class="text-center text-bold">Unid.</th>
 												<th class="text-center text-bold">Quitar</th>
 											</tr>
 										</thead>
@@ -77,6 +78,7 @@
 												<td align="center" width="30%"><b>
 												<i class="icon-cancel-circle2"></i>
 												</b></td>
+												<td></td>
 											</tr>
 											<tr>
 												<td align="center" id="sumas"></td>
@@ -90,6 +92,7 @@
 												class="btn bg-success-700 btn-sm ">Cobrar</button></td>
 												<td align="center"><button type="submit" id="btncancelar" class="btn bg-danger-700 btn-sm">
 												</b> Cancelar </button></td>
+												<td></td>
 											</tr>
 										</tfoot>
 									</table>

@@ -207,11 +207,16 @@ function openPopUp(){
   }
 }
 //---------************* Agrego al detalle
-function agergar_detalle(idproducto,producto,datos,precio_compra,cantidad,exento,perecedero){
-
+function agergar_detalle(idproducto,producto,datos,precio_compra,cantidad,exento,perecedero, unidad_medida){
+    console.log("agregar detalle", precio_compra)
+    var importe_total = precio_compra;
     var tr_add="";
     var id_previo = new Array();
     var filas=0;
+    if(unidad_medida == 'KG'){
+      importe_total = parseFloat(cantidad / 1000) * (precio_compra);
+    }
+    console.log("importe_total", importe_total);
 
       $("#tbldetalle tr").each(function (index){
 
@@ -263,10 +268,12 @@ function agergar_detalle(idproducto,producto,datos,precio_compra,cantidad,exento
          tr_add += '<td width="5%"><input type="text" id="tblcant" name="tblcant" value="1.00" class="touchspin" style="width:70px;"></td>';
          tr_add += '<td align="center">'+precio_compra+'</td>';
          tr_add += '<td align="center">'+exento+'</td>';
-         tr_add += '<td align="center">'+precio_compra+'</td>';
+         tr_add += '<td align="center">'+importe_total+'</td>';
          tr_add += '<td align="center" class="Delete"><button type="button"class="btn btn-danger btn-xs"><i class="icon-trash-alt"></i></button></td>';
          tr_add += '<td align="center"><input type="text" class="form-control input-xs input-date" id="tblvence"'+
         'name="tblvence" style="width:90px;"></td>';
+        //tr_add += '<td align="center"><input type="text" id="tblUnidadMedida" name="tblUnidadMedida" value='+unidad_medida+' class="form-control" style="width:70px;" disabled></input></td>';
+         tr_add += '<td align="center" id="tblUnidadMedida" name="tblUnidadMedida">'+unidad_medida+'</td>';
          tr_add += '</tr>';
 
         var existe = false;
@@ -311,9 +318,10 @@ function agergar_detalle(idproducto,producto,datos,precio_compra,cantidad,exento
          tr_add += '<td width="5%"><input type="text" id="tblcant" name="tblcant" value="1.00" class="touchspin" style="width:70px;"></td>';
          tr_add += '<td align="center">'+precio_compra+'</td>';
          tr_add += '<td align="center">'+exento+'</td>';
-         tr_add += '<td align="center">'+precio_compra+'</td>';
+         tr_add += '<td align="center">'+importe_total+'</td>';
          tr_add += '<td align="center" class="Delete"><button type="button"class="btn btn-danger btn-xs"><i class="icon-trash-alt"></i></button></td>';
          tr_add += '<td align="center">/</td>';
+         tr_add += '<td align="center" id="tblUnidadMedida" name="tblUnidadMedida">'+unidad_medida+'</td>';
          tr_add += '</tr>';
 
         var existe = false;
@@ -385,13 +393,14 @@ function agergar_detalle(idproducto,producto,datos,precio_compra,cantidad,exento
             var datos = ui.item.datos;
             var exento = ui.item.exento;
             var perecedero = ui.item.perecedero;
+            var unidad_medida = ui.item.unidad_medida;
 
             if(exento == 0)
             {
-              agergar_detalle(idproducto,producto,datos,precio_compra,1,0.00,perecedero);
+              agergar_detalle(idproducto,producto,datos,precio_compra,1,0.00,perecedero, unidad_medida);
               validar_siexistefilas();
             } else if (exento == 1){
-              agergar_detalle(idproducto,producto,datos,precio_compra,1,precio_compra,perecedero);
+              agergar_detalle(idproducto,producto,datos,precio_compra,1,precio_compra,perecedero, unidad_medida);
               validar_siexistefilas();
             }
 
@@ -446,9 +455,9 @@ function totales(){
               iva = valor_iva / 100;
               porc_rete = porcentaje_retencion / 100;
 
-          $("#tbldetalle tbody tr").each(function (index)
+          $("#tbldetalle tbody tr").each(function (index, element)
               {
-                  var campo1, campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9, campo10, campo11;
+                  var campo1, campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9, campo10, campo11, campoUnidad;
                   $(this).children("td").each(function (index2)
                   {
                       switch (index2)
@@ -481,13 +490,29 @@ function totales(){
                                    break;
 
 
-                          case 5:  campo5 = campo2 * campo3;
+                          case 5:  
+                                  campoUnidad = $(element).find("#tblUnidadMedida").html();
+                                  console.log("unidadMedida", campoUnidad)
+                                  if(campoUnidad.toUpperCase() == 'KG'){
+                                    campo5 = parseFloat(campo2 /1000) * parseFloat(campo3);
+                                    //campo5 = parseFloat(campo5+ ( campo5*iva));
+                                  }else{
+                                    campo5 = campo2 * campo3;
+                                  }
                                   sumas = parseFloat(campo5);
                                   if(isNaN(sumas)){sumas = 0.00;}
                                   $(this).text(sumas.toFixed(2));
                                    break;
                           case 6:  campo6 = $(this).text();
                                    break;
+                          case 7:
+                          console.log("campoVencimiento", $(this))
+                          break;
+
+                          case 8:
+                            campoUnidad = $(this).text();
+                            console.log("campoUnidad", $(this))
+                          break;
 
 
 
@@ -665,9 +690,9 @@ function enviar_data(){
   var importe = 0;
   var fecha_vence = "";
 
-    $("#tbldetalle tbody tr").each(function (index)
+    $("#tbldetalle tbody tr").each(function (index, element)
         {
-            var campo1, campo2, campo3, campo4, campo5, campo6;
+            var campo1, campo2, campo3, campo4, campo5, campo6, campoUnidad;
             $(this).children("td").each(function (index2)
             {
                 switch (index2)
@@ -689,7 +714,15 @@ function enviar_data(){
                              exentos = parseFloat(campo4);
                              break;
 
-                    case 5:  campo5 = campo2 * campo3;
+                    case 5:  
+                             campoUnidad = $(element).find("#tblUnidadMedida").html();
+                             if(campoUnidad.toUpperCase() == 'KG'){
+                               campo5 = parseFloat(campo2 /1000) * parseFloat(campo3);
+                               //campo5 = parseFloat(campo5+ ( campo5*iva));
+                             }else{
+                               campo5 = campo2 * campo3;
+                             }
+                             //campo5 = campo2 * campo3;
                              importe = parseFloat(campo5);
                              $(this).text(campo5.toFixed(2));
                              break;

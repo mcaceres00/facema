@@ -38,6 +38,7 @@
 												<th class="text-center">Importe</th>
 												<th class="text-center">Quitar</th>
 												<th class="text-center">Vence</th>
+												<th class="text-center">Unid.</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -53,6 +54,7 @@
 												<td></td>
 												<td id="sumas"></td>
 												<td></td>
+												<td></td>
 											</tr>
 											<tr>
 												<td></td>
@@ -62,6 +64,7 @@
 												<td>IGV %</td>
 												<td></td>
 												<td id="iva"></td>
+												<td></td>
 												<td></td>
 											</tr>
 											<tr>
@@ -73,6 +76,7 @@
 												<td></td>
 												<td id="subtotal"></td>
 												<td></td>
+												<td></td>
 											</tr>
 											<tr>
 												<td></td>
@@ -82,6 +86,7 @@
 												<td>RET. (-)</td>
 												<td></td>
 												<td id="ivaretenido"></td>
+												<td></td>
 												<td></td>
 											</tr>
 											<tr>
@@ -93,6 +98,7 @@
 												<td></td>
 												<td id="exentas"></td>
 												<td></td>
+												<td></td>
 											</tr>
 											<tr>
 												<td></td>
@@ -102,6 +108,7 @@
 												<td>TOTAL</td>
 												<td></td>
 												<td id="total"></td>
+												<td></td>
 												<td></td>
 											</tr>
 										</tfoot>
