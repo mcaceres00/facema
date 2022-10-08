@@ -105,6 +105,7 @@
 
 																	$tipo_comprobante = 'BOLETA';
 																}
+																$tipo_comprobante = $column["nombre_comprobante"];
 
 
 																$tipo_pago = $column["tipo_pago"];
@@ -227,6 +228,7 @@
 
 																	$tipo_comprobante = 'BOLETA';
 																}
+																$tipo_comprobante = $column["nombre_comprobante"];
 
 
 																$tipo_pago = $column["tipo_pago"];
@@ -344,6 +346,7 @@
 
 																	$tipo_comprobante = 'BOLETA';
 																}
+																$tipo_comprobante = $column["nombre_comprobante"];
 
 
 																$tipo_pago = $column["tipo_pago"];
@@ -460,6 +463,7 @@
 
 																	$tipo_comprobante = 'BOLETA';
 																}
+																$tipo_comprobante = $column["nombre_comprobante"];
 
 
 																$tipo_pago = $column["tipo_pago"];
