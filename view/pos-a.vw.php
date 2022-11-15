@@ -71,10 +71,10 @@
 										<tfoot id="totales_foot">
 											<tr class="bg-info-800">
 												<td align="center" width="10%">SUMAS</td>
-												<td align="center" width="26%">IGV %</td>
+												<td align="center" width="26%">IVA %</td>
 												<td align="center" width="10%">SUBTOTAL</td>
 												<td align="center" width="10%">RET. (-)</td>
-												<td align="center" width="10%">TOT. SIN IGV</td>
+												<td align="center" width="10%">TOT. SIN IVA</td>
 												<td align="center" width="10%">DESCUENTO</td>
 												<td align="center" width="10%">TOTAL</td>
 												<td align="center" width="30%"><b><i class="icon-cash"></i>

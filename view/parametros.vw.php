@@ -10,7 +10,7 @@
 					<ul class="breadcrumb">
 						<li><a href="?View=Inicio"><i class="icon-home2 position-left"></i> Inicio</a></li>
 						<li><a href="javascript:;">Parametros</a></li>
-						<li class="active">Parametros del Sistema</li>
+						<li class="active">Parametros de la Empresa</li>
 					</ul>
 				</div>
 					<div class="panel-heading">
@@ -69,12 +69,12 @@
 								                     '<?php print($column["idparametro"]); ?>',
 								                     '<?php print($column["nombre_empresa"]); ?>',
 								                     '<?php print($column["propietario"]); ?>',
-								                     '<?php print($nit); ?>',
+											         '<?php print($nit); ?>',
 								                     '<?php print($column["numero_ruc"]); ?>',
 								                     '<?php print($column["porcentaje_iva"]); ?>',
-																		 '<?php print($column["porcentaje_retencion"]); ?>',
-																		 '<?php print($column["monto_retencion"]); ?>',
-																		 '<?php print($column["idcurrency"]); ?>',
+													 '<?php print($column["porcentaje_retencion"]); ?>',
+													 '<?php print($column["monto_retencion"]); ?>',
+													 '<?php print($column["idcurrency"]); ?>',
 								                     '<?php print($column["direccion_empresa"]); ?>')">
 												   <i class="icon-pencil6">
 											       </i> Editar</a></li>
